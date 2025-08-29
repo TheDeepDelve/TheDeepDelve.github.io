@@ -41,7 +41,7 @@ const portfolioData = {
     resumeUrl: "/Harsh Deep_Resume.pdf",
     profile: "Computer Science Student with a proven ability to design, develop and deploy software solutions. Skilled in Software Development cycle, testing and DevOps, with expertise in Java, Python and Web Technologies.",
     skills: [
-        { name: 'C++', icon: '/icons/cpp.jpg' },
+        { name: 'C++', icon: '/icons/cpp.png' },
         { name: 'Java', icon: '/icons/java.png' },
         { name: 'Python', icon: '/icons/python.png' },
         { name: 'JavaScript', icon: '/icons/javascript.png' },
