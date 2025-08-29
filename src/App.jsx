@@ -672,7 +672,7 @@ const Contact = () => {
         setStatus('Sending...');
 
         try {
-            const response = await fetch('https://portfolio-backend-1092059770219.asia-south1.run.app', { // Make sure this URL matches your backend server address
+            const response = await fetch('https://portfolio-backend-1092059770219.asia-south1.run.app/api/send-email', { // Make sure this URL matches your backend server address
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
