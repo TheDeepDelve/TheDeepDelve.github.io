@@ -195,6 +195,56 @@ const AnimatedSection = ({ children, id, className }) => {
 
 // --- Components ---
 
+// const Navbar = () => {
+//     const [scrolled, setScrolled] = useState(false);
+
+//     const handleLinkClick = (e, targetId) => {
+//         e.preventDefault();
+//         const targetElement = document.getElementById(targetId);
+//         if (targetElement) {
+//             targetElement.scrollIntoView({ behavior: 'smooth' });
+//         }
+//     };
+
+//     useEffect(() => {
+//         const handleScroll = () => {
+//             setScrolled(window.scrollY > 20);
+//         };
+//         window.addEventListener('scroll', handleScroll);
+//         return () => window.removeEventListener('scroll', handleScroll);
+//     }, []);
+
+//     return (
+//         <motion.nav
+//             initial={{ y: -100 }}
+//             animate={{ y: 0 }}
+//             transition={{ duration: 0.5, ease: "easeOut" }}
+//             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-2' : 'py-4'}`}
+//         >
+//             <div className={`w-full px-6`}>
+//                 <div className="flex justify-between items-center bg-slate-900/60 backdrop-blur-lg border border-slate-700/50 rounded-full px-6 py-3 shadow-lg">
+//                     <a href="#home" onClick={(e) => handleLinkClick(e, 'home')}>
+//   <img 
+//     src="/Harsh Logo.png"    
+//     alt="Logo"
+//     className="h-10 w-10 object-contain hover:opacity-80 transition-opacity"
+//   />
+// </a>
+//                     <div className="hidden md:flex items-center gap-x-8 text-xl font-medium text-slate-300">
+//                         <a href="#about" onClick={(e) => handleLinkClick(e, 'about')} className="hover:text-white transition-colors">About</a>
+//                         <a href="#experience" onClick={(e) => handleLinkClick(e, 'experience')} className="hover:text-white transition-colors">Experience</a>
+//                         <a href="#projects" onClick={(e) => handleLinkClick(e, 'projects')} className="hover:text-white transition-colors">Projects</a>
+//                         <a href="#contact" onClick={(e) => handleLinkClick(e, 'contact')} className="hover:text-white transition-colors">Contact</a>
+//                     </div>
+//                     <a href={portfolioData.resumeUrl} target="_blank" rel="noopener noreferrer" className="bg-sky-500/10 text-sky-400 px-4 py-2 rounded-full text-sm font-medium border border-sky-500/30 hover:bg-sky-500/20 transition-colors">
+//                         View Resume
+//                     </a>
+//                 </div>
+//             </div>
+//         </motion.nav>
+//     );
+// };
+
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
 
@@ -221,22 +271,20 @@ const Navbar = () => {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-2' : 'py-4'}`}
         >
-            <div className={`w-full px-6`}>
-                <div className="flex justify-between items-center bg-slate-900/60 backdrop-blur-lg border border-slate-700/50 rounded-full px-6 py-3 shadow-lg">
-                    <a href="#home" onClick={(e) => handleLinkClick(e, 'home')}>
-  <img 
+            <div className={`mx-auto w-full max-w-4xl px-4`}>
+                <div className="flex justify-between items-center bg-slate-900/60 backdrop-blur-lg border border-slate-700/50 rounded-full px-4 sm:px-6 py-3 shadow-lg">
+                    <a href="#home" onClick={(e) => handleLinkClick(e, 'home')} className="text-xl sm:text-2xl font-bold text-white hover:text-sky-400 transition-colors"><img 
     src="/Harsh Logo.png"    
     alt="Logo"
     className="h-10 w-10 object-contain hover:opacity-80 transition-opacity"
-  />
-</a>
-                    <div className="hidden md:flex items-center gap-x-8 text-xl font-medium text-slate-300">
+  /></a>
+                    <div className="hidden md:flex items-center gap-x-8 text-sm font-medium text-slate-300">
                         <a href="#about" onClick={(e) => handleLinkClick(e, 'about')} className="hover:text-white transition-colors">About</a>
                         <a href="#experience" onClick={(e) => handleLinkClick(e, 'experience')} className="hover:text-white transition-colors">Experience</a>
                         <a href="#projects" onClick={(e) => handleLinkClick(e, 'projects')} className="hover:text-white transition-colors">Projects</a>
                         <a href="#contact" onClick={(e) => handleLinkClick(e, 'contact')} className="hover:text-white transition-colors">Contact</a>
                     </div>
-                    <a href={portfolioData.resumeUrl} target="_blank" rel="noopener noreferrer" className="bg-sky-500/10 text-sky-400 px-4 py-2 rounded-full text-sm font-medium border border-sky-500/30 hover:bg-sky-500/20 transition-colors">
+                    <a href={portfolioData.resumeUrl} target="_blank" rel="noopener noreferrer" className="bg-sky-500/10 text-sky-400 px-4 py-2 rounded-full text-xs sm:text-sm font-medium border border-sky-500/30 hover:bg-sky-500/20 transition-colors">
                         View Resume
                     </a>
                 </div>
@@ -248,7 +296,7 @@ const Navbar = () => {
 const Hero = () => {
     const titles = ["Software Developer", "Data Science Enthusiast", "Full-Stack Developer"];
     const [currentTitle, setCurrentTitle] = useState(titles[0]);
-
+    
     const handleLinkClick = (e, targetId) => {
         e.preventDefault();
         const targetElement = document.getElementById(targetId);
@@ -269,17 +317,17 @@ const Hero = () => {
     }, []);
     
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center text-center relative overflow-hidden">
-            <div className="absolute top-0 -left-20 w-96 h-96 bg-purple-600/20 rounded-full filter blur-3xl opacity-50 animate-blob"></div>
-            <div className="absolute top-1/2 -right-20 w-96 h-96 bg-sky-600/20 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
-            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-pink-600/20 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
+        <section id="home" className="min-h-screen flex items-center justify-center text-center relative overflow-hidden px-4">
+            <div className="absolute top-0 -left-20 w-72 h-72 sm:w-96 sm:h-96 bg-purple-600/20 rounded-full filter blur-3xl opacity-50 animate-blob"></div>
+            <div className="absolute top-1/2 -right-20 w-72 h-72 sm:w-96 sm:h-96 bg-sky-600/20 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+            <div className="absolute bottom-0 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-pink-600/20 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
             
-            <div className="z-10 px-4">
+            <div className="z-10">
                 <motion.h1 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-5xl md:text-7xl font-bold text-white"
+                    className="text-4xl sm:text-5xl md:text-7xl font-bold text-white"
                 >
                     {portfolioData.name}
                 </motion.h1>
@@ -287,7 +335,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="mt-4 text-xl md:text-2xl text-sky-400 font-medium h-8"
+                    className="mt-4 text-lg sm:text-xl md:text-2xl text-sky-400 font-medium h-8"
                 >
                      <span key={currentTitle} className="animate-fade-in-out">{currentTitle}</span>
                 </motion.div>
@@ -380,32 +428,26 @@ const Skills = () => (
 const Experience = () => (
     <AnimatedSection id="experience" className="py-24">
         <h2 className="text-3xl font-bold text-center text-white mb-16">Professional Experience</h2>
-        <div className="relative max-w-2xl mx-auto">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-slate-700"></div>
+        <div className="relative max-w-2xl mx-auto before:absolute before:left-2 before:h-full before:w-0.5 before:bg-slate-700 md:before:left-1/2 md:before:transform md:before:-translate-x-1/2">
             {portfolioData.experience.map((job, index) => (
-                <div key={index} className="mb-16 flex">
-                    <div className="w-1/2 pr-8 text-right">
+                <div key={index} className="mb-8 flex justify-between items-center w-full md:even:flex-row-reverse">
+                    <div className="md:w-1/2"></div>
+                    <div className="hidden md:block w-12 text-center">
+                        <div className="w-4 h-4 bg-sky-500 rounded-full border-4 border-slate-900 z-10 relative"></div>
+                    </div>
+                    <div className="w-full md:w-1/2 md:pr-8 pl-8 md:pl-0">
                         <motion.div
-                            initial={{ x: -50, opacity: 0 }}
+                            initial={{ x: index % 2 === 0 ? 50 : -50, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             viewport={{ once: true, amount: 0.5 }}
                             transition={{ duration: 0.5 }}
+                            className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 relative md:text-right"
                         >
+                            <div className="absolute -left-1.5 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-sky-500 rounded-full border-4 border-slate-900 md:hidden"></div>
                             <h3 className="text-xl font-bold text-white">{job.role}</h3>
                             <p className="text-sky-400">{job.company}</p>
                             <p className="text-sm text-slate-400 mt-1">{job.date}</p>
-                        </motion.div>
-                    </div>
-                    <div className="w-1/2 pl-8">
-                        <motion.div
-                            initial={{ x: 50, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ duration: 0.5 }}
-                            className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 relative"
-                        >
-                            <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-sky-500 rounded-full border-4 border-slate-900"></div>
-                            <p className="text-slate-300">{job.description}</p>
+                            <p className="text-slate-300 mt-3 text-left">{job.description}</p>
                         </motion.div>
                     </div>
                 </div>
@@ -413,6 +455,38 @@ const Experience = () => (
         </div>
     </AnimatedSection>
 );
+
+const ChatMessageContent = ({ text }) => {
+    // Regular expression to find URLs
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    
+    // Clean the text by removing markdown for bold
+    const cleanedText = text.replace(/\*\*/g, '');
+
+    // Split the text by URLs to interleave text and links
+    const parts = cleanedText.split(urlRegex);
+
+    return (
+        <p className="text-sm whitespace-pre-wrap">
+            {parts.map((part, index) => {
+                if (part.match(urlRegex)) {
+                    return (
+                        <a 
+                            key={index} 
+                            href={part} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-sky-400 underline hover:text-sky-300"
+                        >
+                            {part}
+                        </a>
+                    );
+                }
+                return part;
+            })}
+        </p>
+    );
+};
 
 const ProjectAIChatModal = ({ project, onClose }) => {
     const [chatHistory, setChatHistory] = useState([]);
@@ -507,7 +581,7 @@ const ProjectAIChatModal = ({ project, onClose }) => {
                     {chatHistory.map((msg, index) => (
                         <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                             <div className={`max-w-md p-3 rounded-lg ${msg.role === 'user' ? 'bg-sky-600 text-white' : 'bg-slate-700 text-slate-200'}`}>
-                                <p className="text-sm whitespace-pre-wrap">{msg.parts[0].text}</p>
+                                <ChatMessageContent text={msg.parts[0].text} />
                             </div>
                         </div>
                     ))}
@@ -563,13 +637,13 @@ const Projects = () => {
         <>
             <AnimatedSection id="projects" className="py-24 bg-slate-900/50">
                 <h2 className="text-3xl font-bold text-center text-white mb-12">Featured Projects</h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {portfolioData.projects.map((project, index) => (
                         <motion.div 
                             key={index}
                             className="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden flex flex-col group hover:border-sky-500/50 transition-colors duration-300"
                             whileHover={{ y: -10 }}
-                            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                            transition={{ type: "spring", stiffness: 300 }}
                         >
                             <div className="overflow-hidden">
                                 <img 
